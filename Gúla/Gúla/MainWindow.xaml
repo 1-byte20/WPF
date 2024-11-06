@@ -1,0 +1,61 @@
+﻿<Window x:Class="Gúla.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gúla"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin ="20 10 20 30">
+		<Grid.ColumnDefinition>
+			<ColumDefinition Height ="Auto"/>
+			<ColumDefinition Height ="*"/>
+		</Grid.ColumnDefinition>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<TextBlock x:Name="alapterulet" Grid.Row="0" Grid.Column="0">Alapterület:</TextBlock>
+		<TextBlock x:Name="palast" Grid.Row="1" Grid.Column="0">Palást:</TextBlock>
+		<TextBlock x:Name="magasv" Grid.Row="2" Grid.Column="0">Magasságvonal:</TextBlock>
+		<TextBlock x:Name="felsz" Grid.row="3" Grid.Column="0">Felszín:</TextBlock>
+		<TextBlock x:Name="terf" Grid.row="4" Grid.Column="0">Térfogat:</TextBlock>
+
+		<TextBox x:Name="alter"
+                 Grid.Row="0"
+                 Grid.Column="1"
+                 Margin="1 1 1 1"
+                 Text="{Binding Alapter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 />
+		<TextBox x:Name="palst"
+				Grid.Row="1"
+				Grid.Column="1"
+				Margin="1 1 1 1"
+				Text="{Binding Palast, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 />
+		<TextBox x:Name="magasv"
+				Grid.Row="2"
+				Grid.Column="1"
+				Margin="1 1 1 1"
+				Text="{Binding Magassagv, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 />
+		<TextBox x:Name="fels"
+				Grid.Row="3"
+				Grid.Column="1"
+				IsReadOnly="True"
+				Margin="1 1 1 1"
+				Text="{Binding Felsz, Mode=OneWay}"
+                 />
+		<TextBox x:Name="terf"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 IsReadOnly="True"
+                 TextWrapping="Wrap"
+                 Margin="1 1 1 1"
+                 Text="{Binding Terfog, Mode=OneWay}"
+                 />
+    </Grid>
+</Window>
