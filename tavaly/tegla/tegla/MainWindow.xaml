@@ -1,0 +1,49 @@
+﻿<Window x:Class="tegla.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:tegla"
+        xmlns:viewmodel="clr-namespace:tegla.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="450">
+    <Window.DataContext>
+        <viewmodel:TeglalapViewModel/>
+    </Window.DataContext>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Téglalap kalkulátor</Label>
+
+        <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Egyik oldalhossz:</Label>
+        <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Másik oldalhossz:</Label>
+        <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Terület:</Label>
+        <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Kerület:</Label>
+        <Label Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">Átló hossza:</Label>
+
+        <TextBox Grid.Row="1" Grid.Column="1" Width="150" Height="30" Text="{Binding Oldal_1, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" Width="150" Height="30" Text="{Binding Oldal_2, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="3" Grid.Column="1" Width="150" Height="30" Text="{Binding Terulet, Mode=OneWay}" IsReadOnly="True"></TextBox>
+        <TextBox Grid.Row="4" Grid.Column="1" Width="150" Height="30" Text="{Binding Kerulet, Mode=OneWay}" IsReadOnly="True"></TextBox>
+        <TextBox Grid.Row="5" Grid.Column="1" Width="150" Height="30" Text="{Binding Atlo, Mode=OneWay}" IsReadOnly="True"></TextBox>
+
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Width="150" Height="30" Content="Számol" Command="{Binding CalculateCommand}" Margin="10"></Button>
+            <Button Width="150" Height="30" Content="Kilép" Command="{Binding CloseCommand}"></Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
